@@ -4,6 +4,6 @@ I have used the following Languages:-
 HTML5 
 CSS3
 JAVASCRIPT
-JQUERY
 BOOTSTRAP
+JQUERY
 PLUGINS
