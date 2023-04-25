@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> <!-- font awesome -->
+        <link rel="stylesheet" href="../other/style.css"> <!--  custom -->
+        <link rel="stylesheet" href="../other/bootstrap.min.css"><!--  bootstrap -->
+        <!-- links for pluigins -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> <!--  navbar -->
+        <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+
+        <!-- for page transition -->
+    <link rel="stylesheet" href="../plugins/animsition-master/src/css/animsition.css"> <link rel="stylesheet" href="../plugins/animsition-master/src/css/loading.css"> <link rel="stylesheet" href="../plugins/animsition-master/src/css/base.css">
+        <title>Contact Us</title>
+    </head>
+<body class="animsition">
+ <!-- styling navbar -->
+ <nav class="nav">
+  <ul class="nav-content">
+      <li class="nav-list animsition">
+          <a href="../../index.html" class="link-item animsition-link" >
+              <i class='bx bxs-home link-icon'></i>
+              <span class="link-text">Home</span>
+          </a>
+      </li>
+      <li class="nav-list animsition">
+          <a href="resume.html" class="link-item animsition-link">
+            <i class='bx bxs-user link-icon'></i>
+              <span class="link-text">Resume</span>
+          </a>
+      </li>
+      <li class="nav-list animsition">
+          <a href="services.html" class="link-item animsition-link">
+            <i class="fa-solid fa-desktop link-icon"></i>
+            <span class="link-text">Services</span>
+          </a>
+      </li>
+      <li class="nav-list animsition">
+          <a href="contact.html" class="link-item animsition-link">
+              <i class='fa-solid fa-phone link-icon'></i>
+              <span class="link-text">Contact</span>
+          </a>
+      </li>
+    
+
+      <!-- <span class="indicator"></span> -->
+  </ul>
+</nav>
+
+
+<!-- color-switcher -->
+  <div class="color-switcher">
+    <div class="switcher-button">
+        <i class="fas fa-cog"></i>
+    </div>
+<div class="colors">
+    <h3>Select Theme</h3>
+
+    <div class="theme-button-container">
+        <span class="theme-buttons" data-color="#ff4545" style="background: #ff4545;"></span>
+        <span class="theme-buttons" data-color="#4eaeff" style="background: #3c97e1;"></span>
+        <span class="theme-buttons" data-color="#984eff" style="background: #984eff;"></span>
+        <span class="theme-buttons" data-color="#43d85d" style="background: #39c250;"></span>
+        <span class="theme-buttons" data-color="#32bec8" style="background: #32bec8;"></span>
+        <span class="theme-buttons" data-color="#60458d" style="background: #60458d;"></span>
+        <span class="theme-buttons" data-color="#444039" style="background: #444039;"></span>
+        <span class="theme-buttons" data-color="#3a6f1b" style="background: #3a6f1b;"></span>
+        <span class="theme-buttons" data-color="#7d194b" style="background: #7d194b;"></span>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container box gradient-border" >
+    <div class="row">
+        <div class="col-12 upper">
+    <h1 class="display-1 text-center">Contact</h1>
+        </div>
+    </div>
+<div class="row mt-2" >
+    <div class="col-md-6">
+    <form autocomplete="off">
+        <div id="focus"></div>
+            <h1 class="display-3 mb-4">Get In Touch</h1>
+            <input type="text" half placeholder="First name" autocomplete="no">
+            <input type="text" half placeholder="Last name" autocomplete="no">
+            <input type="text" placeholder="Mail" autocomplete="no">
+            <input type="text" half placeholder="City" autocomplete="no">
+            <input type="text" half placeholder="Mobile" autocomplete="no">
+            <input type="submit" value="Send it">
+        </form>
+    </div>
+
+    <div class="col-md-6 p-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.7163996326626!2d77.13727231475123!3d28.69812898239186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03da0abc6ac3%3A0xe4642d10ca8d8fbf!2sOxford%20Software%20Institute%20Pitampura!5e0!3m2!1sen!2sin!4v1681021593276!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    
+</div>
+
+</div>
+
+
+    <script src="../other/script.js"></script> <!--  custom script -->
+    <script src="../other/jquery-3.6.3.min.js"></script> <!--  jquery -->
+    <script src="../other/bootstrap.bundle.min.js"></script><!--  bootstrap -->
+
+   <!-- page transition -->
+   <script src="../plugins/animsition-master/src/js/animsition.js"></script>
+    <script>
+        
+//forms
+const FORM = $("form"); // set form or other element here
+const TYPES = ["input[type=text], input[type=submit]"]; // set which elements get targeted by the focus
+const FOCUS = $("#focus"); // focus element
+
+// function for positioning the div
+function position(e) {
+  // get position
+  var props = {
+    top: e.offset().top,
+    left: e.offset().left,
+    width: e.outerWidth(),
+    height: e.outerHeight(),
+    radius: parseInt(e.css("border-radius"))
+  };
+  
+  // set position
+  FOCUS.css({
+    top: props.top,
+    left: props.left,
+    width: props.width,
+    height: props.height,
+    "border-radius": props.radius
+  });
+  
+  FOCUS.fadeIn(200);
+}
+
+FORM.find(TYPES.join()).each(function(i) {
+  // when clicking an input defined in TYPES
+  $(this).focus(function() {
+    el = $(this);
+
+    // adapt size/position when resizing browser
+    $(window).resize(function() {
+      position(el);
+    });
+
+    position(el);
+  });
+});
+
+FORM.on("focusout", function(e) {
+  setTimeout(function() {
+    if (!e.delegateTarget.contains(document.activeElement)) {
+      FOCUS.fadeOut(200);
+    }
+  }, 0);
+});
+
+
+    </script>
+
+<script>
+  //for page transition
+  $(document).ready(function() {
+  $(".animsition").animsition({
+    inClass: 'fade-in-up-lg',
+    outClass: 'fade-out-up-lg',
+    inDuration: 1000,
+    outDuration: 500,
+    linkElement: '.animsition-link',
+    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+    loading: true,
+    loadingParentElement: 'body', //animsition wrapper element
+    loadingClass: 'animsition-loading',
+    loadingInner: '', // e.g '<img src="loading.svg" />'
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: [ 'animation-duration', '-webkit-animation-duration'],
+    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+    overlay : false,
+    overlayClass : 'animsition-overlay-slide',
+    overlayParentElement : 'body',
+    transition: function(url){ window.location.href = url; }
+  });
+});
+
+    //for theme animation
+    $(document).ready(function(){
+  $(".switcher-button").click(function(){
+    $(".colors").slideToggle();
+  });
+});
+</script>
+    
+</body>
+</html>

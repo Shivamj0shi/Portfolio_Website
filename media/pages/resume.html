@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> <!-- font awesome -->
+    <link rel="stylesheet" href="../other/style.css"> <!--  custom -->
+    <link rel="stylesheet" href="../other/bootstrap.min.css"><!--  bootstrap -->
+    <!-- links for pluigins -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> <!--  navbar -->
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  <!--  AOS -->
+      <!-- for page transition -->
+    <link rel="stylesheet" href="../plugins/animsition-master/src/css/animsition.css"> <link rel="stylesheet" href="../plugins/animsition-master/src/css/loading.css"> <link rel="stylesheet" href="../plugins/animsition-master/src/css/base.css">
+    <title>My Resume</title>
+    <style>
+        body, body :not(script):not(style), ::before {
+  display: grid;
+}
+
+body {
+  grid-gap: 2em;
+  /* grid-template-columns: repeat(auto-fit, Min(100%, 12rem)); */
+  place-content: center;
+  /* font: 900 1.25em/1.25 sans-serif; */
+  /* text-align: center; */
+}
+
+article {
+  margin: 2rem 0rem;
+    width: 20rem;
+  --m: calc(.5*(var(--n) - 1));
+  --abs: Max(calc(var(--i) - var(--m)), calc(var(--m) - var(--i)));
+  --val: calc(var(--abs)*(1 + .5*var(--i))/var(--n));
+  --dt0: calc(var(--val)*1s);
+  --dt1: calc((var(--val) + 1)*1s);
+  --dt2: calc((var(--val) + 1.5)*1s);
+  --dt3: calc((var(--val) + 2)*1s);
+  --dt4: calc((var(--val) + 2.5)*1s);
+  --dt5: calc((var(--val) + 3)*1s);
+  overflow: hidden;
+  padding-bottom: 1rem;
+  backface-visibility: hidden;
+  transform: perspective(25em);
+  background: #fff content-box;
+  filter: drop-shadow(4px 4px 13px);
+  animation: card 1s ease-out var(--dt0) backwards, cost 1s var(--dt4) backwards;
+}
+article ::before, article ::after, article button {
+  --j: 1;
+  --sgn-j: calc(2*var(--j) - 1);
+  --not-j: calc(1 - var(--j));
+  --mask:
+  	linear-gradient(calc(var(--sgn-j)*90deg),
+  			red 33.333%, transparent 66.667%) calc(var(--not-j)*100%)/ 300%;
+}
+
+@keyframes card {
+  0% {
+    transform: perspective(25em) rotatey(0.5turn);
+  }
+}
+header {
+  grid-gap: 1rem;
+  padding: 2rem 0.5em 1rem;
+  transform-origin: 100% 100%;
+  background: linear-gradient(var(--grad));
+  color: #fff;
+  counter-reset: cost var(--cost);
+  animation: head 1s ease-out var(--dt1) backwards;
+}
+.circle {
+  place-self: center;
+  place-content: center;
+  border: solid 4px currentcolor;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  animation: ring 1s ease-out var(--dt3) backwards;
+font-size: 2rem;
+}
+header::after {
+  height: 4px;
+  background: currentcolor;
+  clip-path: inset(0 round 4px);
+  animation: line 1s ease-out var(--dt2) backwards;
+  content: "";
+}
+
+@keyframes head {
+  0% {
+    transform: translate(-100%) skewx(35deg);
+  }
+}
+@keyframes ring {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes line {
+  0% {
+    clip-path: inset(0 50% round 4px);
+  }
+}
+h3::before, h3::after {
+  place-self: center;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  animation: text 1s ease-out var(--dt5) backwards;
+}
+h3::before {
+  --j: 0;
+  animation-name: text, move;
+  content: attr(data-name);
+}
+h3::after {
+  font-size: 0.6em;
+  font-weight: 100;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(50%);
+  }
+}
+section {
+    padding: 1rem 1.5rem;
+  margin-bottom: -1rem;
+  border-bottom: solid 1rem transparent;
+  background-color: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 50% 100%, 0 calc(100% - 1rem));
+}
+
+button {
+  place-content: center;
+  line-height: 3;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  cursor: pointer;
+  animation: text 1s ease-out var(--dt2) backwards;
+}
+
+@keyframes text {
+  0% {
+    -webkit-mask-position: calc(var(--j)*100%);
+    mask-position: calc(var(--j)*100%);
+  }
+}
+
+#exp-edu{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+    </style>
+</head>
+<body class="animsition" style="--n: 3">
+    <!-- styling navbar -->
+    <nav class="nav">
+        <ul class="nav-content">
+            <li class="nav-list animsition">
+                <a href="../../index.html" class="link-item animsition-link" >
+                    <i class='bx bxs-home link-icon'></i>
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-list animsition">
+                <a href="resume.html" class="link-item animsition-link">
+                  <i class='bx bxs-user link-icon'></i>
+                    <span class="link-text">Resume</span>
+                </a>
+            </li>
+            <li class="nav-list animsition">
+                <a href="services.html" class="link-item animsition-link">
+                  <i class="fa-solid fa-desktop link-icon"></i>
+                  <span class="link-text">Services</span>
+                </a>
+            </li>
+            <li class="nav-list animsition">
+                <a href="contact.html" class="link-item animsition-link">
+                    <i class='fa-solid fa-phone link-icon'></i>
+                    <span class="link-text">Contact</span>
+                </a>
+            </li>
+          
+      
+            <!-- <span class="indicator"></span> -->
+        </ul>
+      </nav>
+
+
+<!-- color-switcher -->
+      <div class="color-switcher">
+        <div class="switcher-button">
+            <i class="fas fa-cog"></i>
+        </div>
+    <div class="colors">
+        <h3>Select Theme</h3>
+    
+        <div class="theme-button-container">
+            <span class="theme-buttons" data-color="#ff4545" style="background: #ff4545;"></span>
+            <span class="theme-buttons" data-color="#4eaeff" style="background: #3c97e1;"></span>
+            <span class="theme-buttons" data-color="#984eff" style="background: #984eff;"></span>
+            <span class="theme-buttons" data-color="#43d85d" style="background: #39c250;"></span>
+            <span class="theme-buttons" data-color="#32bec8" style="background: #32bec8;"></span>
+            <span class="theme-buttons" data-color="#60458d" style="background: #60458d;"></span>
+            <span class="theme-buttons" data-color="#444039" style="background: #444039;"></span>
+            <span class="theme-buttons" data-color="#3a6f1b" style="background: #3a6f1b;"></span>
+            <span class="theme-buttons" data-color="#7d194b" style="background: #7d194b;"></span>
+        </div>
+        </div>
+    
+    </div>
+
+    <!-- main container -->
+    <div class="container box gradient-border" >
+<div class="row">
+    <div class="col-12 upper">
+<h1 class="display-1 text-center">Resume</h1>
+    </div>
+</div>
+
+    <div class="row">
+
+<div class="col-12 resume-lower" id="exp-edu">
+    <article style="--i: 0; --cost: 9; --grad: #0fcf7b, #0c9f30">
+        <header>
+            <div class="circle"><i class="fa-duotone fa-graduation-cap"></i></div>
+          <h3 data-name="Education "></h3>
+        </header>
+        <section id="edu" data-aos="slide-left">
+            <ul>
+                <li data-aos="slide-right"> <h3>GRADUATION</h3> BACHELOR OF COMPUTER APPLICATION (BCA) 
+               <i> Indra Gandhi National Open University (IGNOU) </i>
+                </li><br>
+                <li data-aos="slide-right"><h3>Full Stack Development </h3><h6> <i> Oxford Software Institute </i> </h6>
+                  <li class="li" data-aos="slide-right">
+                    <b>  Front-End </b>  Creating visually appealing and user-friendly websites
+                    through HTML, CSS, Bootstrap, JavaScript, React, Angular and Jquery.
+                  </li> <br>
+                  <li class="li" data-aos="slide-right">
+                    <b> Back-End </b> With JAVA I have an ability to create dynamic and scalable
+                    web applications, utilizing advanced database management
+                    techniques . Skilled in optimizing server-side performance and
+                    adept at troubleshooting and resolving issues.
+                  </li>
+
+                </li>
+<br>
+                <li data-aos="slide-left"><h3>Graphic Design</h3>
+                  <h6> <i> By - Udemy </i> </h6></li>
+                  <li data-aos="slide-left">With a good knowledge of - Adobe Illustrator, Adobe Photoshop, Canva and Figma , I have done some astonishing works!</li>
+            </ul>
+         
+        </section>
+      </article>
+      <article style="--i: 1; --cost: 19; --grad: #f7256e, #cc0c48" data-aos="zoom-left">
+        <header data-aos="slide-right">
+            <div class="circle"><i class="fa-regular fa-hourglass-end" data-aos="slide-up"></i></div>
+          <h3 data-name="Experience" data-aos="zoom-in"></h3>
+        </header>
+        <section id="exp" data-aos="flip-up">
+         <ul>
+          <li data-aos="slide-left">
+            <h3>With 3+ Years Of Experience</h3> 
+            I have deployed several projects as a full stack developer and as a graphic designer also.
+          </li>
+          <li data-aos="slide-left"> Developed a Single page application using react and angular.</li>
+          <br><br>
+          <li data-aos="slide-left">
+            <h3> 2 Internships as a full stack developer</h3> 
+                    </li>
+         
+          <li class="li" data-aos="slide-left">Worked On A Live Project</li>
+          <li class="li" data-aos="slide-left">Made a Student Management System Application Using JAVA , Servlet , JSP AND MYSQL</li>
+          <br><br>
+          <li data-aos="slide-left"> <h3>Working as a freelancer from 1 year</h3></li>
+          <li class="li" data-aos="slide-right">40+ Happy Clients</li>
+          <li class="li" data-aos="slide-right">50+ People appreciated my work</li>
+          <li class="li" data-aos="slide-right">Developed numerous marketing programs </li>
+          <li class="li" data-aos="slide-right">Managed up to 5 projects or tasks at a given time while under pressure</li>
+
+         </ul>
+        </section>
+      </article>
+      <article style="--i: 2; --cost: 29; --grad: #f7ea1f, #f87d2c" data-aos="zoom-right">
+        <header data-aos="zoom-in-down">
+            <div class="circle" data-aos="slide-left"><i class="fa-solid fa-laptop-code" data-aos="slide-right"></i></div>
+          <h3 data-name="Project"></h3>
+        </header>
+        <section id="proj" data-aos="zoom-out-down">
+          <ul>
+            <li data-aos="slide-right"> <h3>Shivpsy</h3> 
+           <i>An Ecommerce Website <a href="https://shivamj0shi.github.io/Shivpsy/" target="_blank">https://shivamj0shi.github.io/Shivpsy/</a></i>
+           Shivpsy provides you multiple pages for user interactions . it has a separate products section along with "Add To Cart" feature
+            </li>
+            <li class="li" data-aos="slide-right">
+              More than 10+ pages with Dark Mode Feature
+            </li>
+            <li class="li" data-aos="slide-right">
+              Fully Responsive with a bunch of animations
+            </li>
+            <li class="li" data-aos="slide-right">
+            Different products section for multiple variant 
+            </li>
+            <li class="li" data-aos="slide-right">
+            form submit authentication with customer feedback , terms , privacy and many more
+            </li>
+            <li class="li" data-aos="slide-right">
+            Overall A Complete Package For Your Brand!
+            </li>
+<br>
+            <li data-aos="slide-left"> <h3>Oxford Management System</h3> 
+              <i>A Dynamic Website </i>
+             I have developed this website for my Institute. This Website allows student to register in their respective computer
+             courses and the data is further managed by teachers
+               </li>
+               <li class="li" data-aos="slide-left">
+                there are 2 section ,one for Students to login/register and other for teacher to manage the student fees and students record 
+                in a proper way.
+               </li>
+        </ul>
+        </section>
+      </article>
+ 
+</div>
+
+
+<div class="col-12" id="skills">
+
+    <h1 class="display-1 text-center">Skills I Know</h1> <br> <br>
+
+    <ul>
+      
+        <li style="--accent-color:#f20071" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-html5"></i></div>
+            <div class="title">HTML 5</div>
+            
+        </li>
+
+        <li style="--accent-color:#ca4dc2" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-css3"></i></div>
+            <div class="title">CSS 3</div>
+         
+        </li>
+        <li style="--accent-color:#c8d247" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-js"></i></div>
+            <div class="title">Javascript</div>
+            
+        </li>
+        <li style="--accent-color:#5882cc" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-bootstrap"></i></div>
+            <div class="title">Bootstrap</div>
+        </li>
+
+        <li style="--accent-color:purple" data-aos="flip-up">
+          <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-sass"></i></div>
+          <div class="title">SASS</div>
+      </li>
+
+        <li style="--accent-color:#545f5c" data-aos="flip-up"> 
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-bolt"></i></div>
+            <div class="title">Jquery</div>
+        </li>
+
+        <li style="--accent-color:#3d3dc2" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-react"></i></div>
+            <div class="title">React</div>
+        </li>
+
+        <li style="--accent-color:green" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-angular"></i></div>
+            <div class="title">Angular</div>
+        </li>
+
+        <li style="--accent-color:#000000" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-solid fa-database"></i></div>
+            <div class="title">MySql</div>
+        </li>
+
+        <li style="--accent-color:#eb1a1a" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-brands fa-java"></i></div>
+            <div class="title">Java</div>
+        </li>
+
+        <li style="--accent-color:brown" data-aos="flip-up">
+            <div class="icon" data-aos="zoom-in"><i class="fa-regular fa-server"></i></div>
+            <div class="title">Servlet</div>
+        </li>
+        <li style="--accent-color:#126d6e" data-aos="flip-up">
+            <div class="icon" data-aos="flip-up"><i class="fa-brands fa-battle-net"></i></div>
+            <div class="title">JSP</div>
+        </li>
+    
+
+    </ul>
+
+</div>
+
+    </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../other/script.js"></script> <!--  custom script -->
+    <script src="../other/jquery-3.6.3.min.js"></script> <!--  jquery -->
+    <script src="../other/bootstrap.bundle.min.js"></script><!--  bootstrap -->
+
+    <!-- links for plugin -->
+        <!-- page transition -->
+<script src="../plugins/animsition-master/src/js/animsition.js"></script>
+    <!-- typing -->
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+
+    <script>
+        //for page transition
+        $(document).ready(function() {
+  $(".animsition").animsition({
+    inClass: 'rotate-in',
+    outClass: 'rotate-out',
+    inDuration: 1000,
+    outDuration: 500,
+    linkElement: '.animsition-link',
+    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+    loading: true,
+    loadingParentElement: 'body', //animsition wrapper element
+    loadingClass: 'animsition-loading',
+    loadingInner: '', // e.g '<img src="loading.svg" />'
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: [ 'animation-duration', '-webkit-animation-duration'],
+    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+    overlay : false,
+    overlayClass : 'animsition-overlay-slide',
+    overlayParentElement : 'body',
+    transition: function(url){ window.location.href = url; }
+  });
+});
+
+    //for theme animation
+    $(document).ready(function(){
+  $(".switcher-button").click(function(){
+    $(".colors").slideToggle();
+  });
+});
+    </script>
+    <!-- for AOS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+    </body>
+</html>
